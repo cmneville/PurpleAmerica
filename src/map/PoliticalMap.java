@@ -27,7 +27,7 @@ public class PoliticalMap {
         Scanner scan;
 
         try {
-            scan = new Scanner(new File("C:\\Users\\chris\\Documents\\Programs\\PurpleAmerica\\src\\data\\USA.txt"));
+            scan = new Scanner(new File("C:\\Users\\chris\\Documents\\Programs\\PurpleAmerica\\src\\data\\AR.txt"));
         } catch (Exception e) {
             System.out.println("nope");
             scan = null;
@@ -39,12 +39,14 @@ public class PoliticalMap {
         
        
         double q = ((max.latitude- min.latitude));
-        System.out.println(q);
         double p = ((max.longitude-min.longitude));
-        System.out.println(p);
-        System.out.println((q*20000%2000));
-        System.out.println((p*20000%2000));
-        StdDraw.setCanvasSize((int)(q),(int)(p));
+        
+        
+        while(q < 1000 && p < 1500){
+            q += q;
+            p += p;
+        }
+        StdDraw.setCanvasSize((int)(p),(int)(q));
         
         StdDraw.setXscale(min.longitude,max.longitude);
         StdDraw.setYscale(min.latitude,max.latitude);
