@@ -35,18 +35,7 @@ public class PoliticalMap {
 
         Coordinate min = new Coordinate(scan.nextDouble(),scan.nextDouble());
         Coordinate max = new Coordinate(scan.nextDouble(),scan.nextDouble());
-        int h = 0;
-        int w = 0;
-        int k = 0;
-        
-        while(w < 1000){
-            w += (int)(max.latitude-min.latitude);
-            k++;
-        }
-        while(h < 1000){
-            h += (int)(max.longitude-min.longitude);
-        }
-        StdDraw.setCanvasSize(h, w);
+        StdDraw.setCanvasSize(((int)(30000/(max.latitude- min.latitude))), ((int)(30000/(max.longitude-min.longitude))));
         StdDraw.setXscale(min.longitude,max.longitude);
         StdDraw.setYscale(min.latitude,max.latitude);
         
