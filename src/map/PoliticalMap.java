@@ -32,10 +32,20 @@ public class PoliticalMap {
             System.out.println("nope");
             scan = null;
         }
-
+        
+        
         Coordinate min = new Coordinate(scan.nextDouble(),scan.nextDouble());
         Coordinate max = new Coordinate(scan.nextDouble(),scan.nextDouble());
-        StdDraw.setCanvasSize(((int)(30000/(max.latitude- min.latitude))), ((int)(30000/(max.longitude-min.longitude))));
+        
+       
+        double q = ((max.latitude- min.latitude));
+        System.out.println(q);
+        double p = ((max.longitude-min.longitude));
+        System.out.println(p);
+        System.out.println((q*20000%2000));
+        System.out.println((p*20000%2000));
+        StdDraw.setCanvasSize((int)(q),(int)(p));
+        
         StdDraw.setXscale(min.longitude,max.longitude);
         StdDraw.setYscale(min.latitude,max.latitude);
         
@@ -49,8 +59,8 @@ public class PoliticalMap {
             String subTag = scan.nextLine();
             String tag = scan.nextLine();
             
-            System.out.println(subTag);
-            System.out.println(tag);
+            //System.out.println(subTag);
+            //System.out.println(tag);
             //System.out.println(scan.nextLine());
             int subSize = scan.nextInt();
 
